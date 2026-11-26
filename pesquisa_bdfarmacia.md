@@ -218,28 +218,7 @@ INSERT INTO item_venda (id_venda, id_produto, quantidade, preco_praticado, subto
 (7, 8, 1, 16.30, 16.30),
 (8, 9, 1, 18.00, 18.00);
 
--- 5. DEMONSTRAÇÃO DE MANUTENÇÃO (ALTER, UPDATE, DELETE)
 
--- a. ALTER TABLE: Adicionando uma nova coluna na tabela de clientes
-ALTER TABLE cliente ADD COLUMN status_cadastro VARCHAR(20) DEFAULT 'Ativo';
-
--- b. ALTER TABLE (RENAME): Renomeando uma coluna na tabela de produtos
-ALTER TABLE produto RENAME COLUMN preco_unitario TO preco_venda;
-
--- c. UPDATE: Atualizando o preço de um produto específico (aumento no Omeprazol)
-UPDATE produto SET preco_venda = 22.50 WHERE nome_comercial = 'Omeprazol';
-
--- d. UPDATE: Corrigindo o e-mail de um cliente
-UPDATE cliente SET email = 'carlos.eduardo.silva@novoemail.com' WHERE id_cliente = 1;
-
--- e. DELETE: Removendo um produto do estoque que saiu de linha
--- (Supondo que não haja vendas vinculadas, caso contrário violaria a FK)
--- Vamos inserir um produto fake primeiro para poder deletar
-INSERT INTO produto (id_categoria, nome_comercial, principio_ativo, concentracao, preco_venda, estoque_atual, requer_receita) VALUES
-(1, 'Remedio Teste', 'Teste', '10mg', 5.00, 0, FALSE);
-
-DELETE FROM produto WHERE nome_comercial = 'Remedio Teste';
-```[cite: 1]
 
 ## 5 – Fontes da Pesquisa
 
